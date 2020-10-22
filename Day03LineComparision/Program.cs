@@ -2,7 +2,7 @@
  *  Compilation:  csc.exe /t:exe /out:Day03LineComparision.exe Day03LineComparision.cs
  *  Execution:    Day03LineComparision.exe 103
  *  
- *  Purpose: Determines equality of lines
+ *  Purpose: Comparision of lines
  *
  *  @author  Ramya U
  *  @version 1.0
@@ -38,13 +38,16 @@ namespace Day03LineComparision
             y4 = Convert.ToInt32(Console.ReadLine());
             double len1 = Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2));
             double len2 = Math.Sqrt(Math.Pow(x4 - x3, 2) + Math.Pow(y4 - y3, 2));
-            //if loop is being used to check the condition whether both lines are equal or not
-            //if line are equal then it prints lines are equal in length
-            //if lines are not equal then it prints lines are not equal in length
-            if (len1.Equals(len2))
-                Console.WriteLine("Lines are equal in length.");
+            //if loop is being used to check the condition whether lines are greater equal or smaller in length
+            //CompareTo is used to compare the instance of lenth of line by returning 
+            //value of instance to be greater or lesser or equal
+            int diffInLength = len1.CompareTo(len2);
+            if (diffInLength == 0)
+                Console.WriteLine("Lines are equal in length");
+            else if (diffInLength > 0)
+                Console.WriteLine("Line1 is greater in length than Line2");
             else
-                Console.WriteLine("Lines are not equal in length.");
+                Console.WriteLine("Line1 is smaller in length than Line2");
         }
     }
 }
